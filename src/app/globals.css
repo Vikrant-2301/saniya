@@ -2,24 +2,24 @@
 
 /* ─── TOKENS ──────────────────────────────────────────── */
 :root {
-  --pink-bg:     #fde8f0;
-  --pink-light:  #ffc2d4;
-  --pink-mid:    #ff8fab;
-  --pink-dark:   #e05278;
-  --pink-deep:   #c0395e;
-  --rose:        #ff4d79;
-  --cream:       #fff8fb;
+  --blue-bg:     #dff0f8;
+  --blue-light:  #b3ddf0;
+  --blue-mid:    #6cbfe0;
+  --blue-dark:   #2899cc;
+  --blue-deep:   #156b99;
+  --sky:         #4ab3d8;
+  --cream:       #f0f8ff;
   --white:       #ffffff;
-  --text-dark:   #7a2040;
-  --text-mid:    #a0405a;
-  --text-soft:   #c47a8a;
+  --text-dark:   #0f4c6e;
+  --text-mid:    #2178a6;
+  --text-soft:   #5aaac9;
   --gold:        #f9c74f;
   --gold-dark:   #e09b20;
 
-  --shadow-sm:   0 2px 12px rgba(224,82,120,0.12);
-  --shadow-md:   0 6px 30px rgba(224,82,120,0.18);
-  --shadow-lg:   0 16px 60px rgba(224,82,120,0.25);
-  --shadow-xl:   0 24px 80px rgba(224,82,120,0.35);
+  --shadow-sm:   0 2px 12px rgba(40,153,204,0.12);
+  --shadow-md:   0 6px 30px rgba(40,153,204,0.18);
+  --shadow-lg:   0 16px 60px rgba(40,153,204,0.25);
+  --shadow-xl:   0 24px 80px rgba(40,153,204,0.35);
 
   --radius:      20px;
   --radius-lg:   32px;
@@ -31,7 +31,7 @@
 html { font-size: 16px; scroll-behavior: smooth; }
 body {
   font-family: 'Outfit', sans-serif;
-  background: var(--pink-bg);
+  background: var(--blue-bg);
   color: var(--text-dark);
   min-height: 100vh;
   overflow-x: hidden;
@@ -43,9 +43,9 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Outfit', sa
 
 /* ─── SCROLLBAR ───────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--pink-bg); }
+::-webkit-scrollbar-track { background: var(--blue-bg); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--pink-mid), var(--pink-dark));
+  background: linear-gradient(var(--blue-mid), var(--blue-dark));
   border-radius: 99px;
 }
 
@@ -76,26 +76,26 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Outfit', sa
   padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 2rem);
 }
 
-/* ─── PINK BG GRADIENT ────────────────────────────────── */
-.bg-pink {
-  background: linear-gradient(160deg, #fde8f0 0%, #ffc8da 50%, #fde8f0 100%);
+/* ─── BLUE BG GRADIENT ────────────────────────────────── */
+.bg-blue {
+  background: linear-gradient(160deg, #dff0f8 0%, #b3ddf0 50%, #dff0f8 100%);
 }
-.bg-pink-deep {
-  background: radial-gradient(ellipse at top, #ffb3cc 0%, #fde8f0 60%);
+.bg-blue-deep {
+  background: radial-gradient(ellipse at top, #9ed5ec 0%, #dff0f8 60%);
 }
 
-/* ─── FLOATING CLOUDS / HEARTS DECO ──────────────────── */
+/* ─── FLOATING DECO ───────────────────────────────────── */
 .deco-cloud {
   position: absolute;
   pointer-events: none;
   opacity: 0.7;
-  filter: drop-shadow(0 4px 16px rgba(255,140,175,0.25));
+  filter: drop-shadow(0 4px 16px rgba(74,179,216,0.25));
 }
-.deco-heart {
+.deco-star {
   position: absolute;
   pointer-events: none;
   opacity: 0.55;
-  filter: drop-shadow(0 2px 8px rgba(255,77,121,0.3));
+  filter: drop-shadow(0 2px 8px rgba(40,153,204,0.3));
 }
 
 /* ─── TYPOGRAPHY ──────────────────────────────────────── */
@@ -111,7 +111,7 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Outfit', sa
   font-weight: 600;
 }
 .gradient-text {
-  background: linear-gradient(135deg, var(--pink-dark) 0%, var(--rose) 50%, var(--pink-mid) 100%);
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--sky) 50%, var(--blue-mid) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -124,9 +124,9 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Outfit', sa
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--pink-dark);
-  background: rgba(255,139,171,0.18);
-  border: 1px solid rgba(255,139,171,0.4);
+  color: var(--blue-dark);
+  background: rgba(108,191,224,0.18);
+  border: 1px solid rgba(108,191,224,0.4);
   padding: 0.35rem 1rem;
   border-radius: var(--radius-full);
 }
@@ -160,23 +160,23 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Outfit', sa
 }
 .btn:hover::after { opacity: 1; }
 .btn-primary {
-  background: linear-gradient(135deg, var(--rose) 0%, var(--pink-dark) 100%);
+  background: linear-gradient(135deg, var(--sky) 0%, var(--blue-dark) 100%);
   color: #fff;
-  box-shadow: 0 6px 24px rgba(224,82,120,0.38), 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 24px rgba(40,153,204,0.38), 0 2px 6px rgba(0,0,0,0.08);
 }
 .btn-primary:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 16px 44px rgba(224,82,120,0.55), 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 16px 44px rgba(40,153,204,0.55), 0 4px 12px rgba(0,0,0,0.1);
 }
 .btn-outline {
   background: rgba(255,255,255,0.75);
-  color: var(--pink-dark);
-  border: 2px solid var(--pink-light);
+  color: var(--blue-dark);
+  border: 2px solid var(--blue-light);
   backdrop-filter: blur(8px);
 }
 .btn-outline:hover {
   background: #fff;
-  border-color: var(--pink-mid);
+  border-color: var(--blue-mid);
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
@@ -186,7 +186,7 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Outfit', sa
   background: rgba(255,255,255,0.62);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1.5px solid rgba(255,194,212,0.6);
+  border: 1.5px solid rgba(179,221,240,0.6);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md), 0 1px 0 rgba(255,255,255,0.8) inset;
 }
@@ -203,7 +203,7 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Outfit', sa
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, transparent 56px, rgba(255,100,140,0.35) 56px, rgba(255,100,140,0.35) 58px, transparent 58px),
+    linear-gradient(to right, transparent 56px, rgba(74,179,216,0.35) 56px, rgba(74,179,216,0.35) 58px, transparent 58px),
     repeating-linear-gradient(
       to bottom,
       transparent 0px,
@@ -228,7 +228,7 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Outfit', sa
 .notebook-hole {
   width: 18px;
   height: 18px;
-  background: var(--pink-bg);
+  background: var(--blue-bg);
   border-radius: 50%;
   margin: 0 auto;
   box-shadow: inset 0 1px 4px rgba(0,0,0,0.15);
@@ -348,12 +348,12 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Outfit', sa
   100% { background-position:0% 50%; }
 }
 @keyframes glow {
-  0%,100% { box-shadow:0 0 20px rgba(224,82,120,0.4); }
-  50%      { box-shadow:0 0 50px rgba(224,82,120,0.8), 0 0 80px rgba(255,77,121,0.4); }
+  0%,100% { box-shadow:0 0 20px rgba(40,153,204,0.4); }
+  50%      { box-shadow:0 0 50px rgba(40,153,204,0.8), 0 0 80px rgba(74,179,216,0.4); }
 }
 @keyframes glowText {
-  0%,100% { text-shadow:0 0 20px rgba(224,82,120,0.4); }
-  50%      { text-shadow:0 0 40px rgba(255,77,121,0.9), 0 0 70px rgba(224,82,120,0.5); }
+  0%,100% { text-shadow:0 0 20px rgba(40,153,204,0.4); }
+  50%      { text-shadow:0 0 40px rgba(74,179,216,0.9), 0 0 70px rgba(40,153,204,0.5); }
 }
 @keyframes orbitStar {
   from { transform:rotate(0deg) translateX(120px) rotate(0deg); }
@@ -431,7 +431,6 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Outfit', sa
   75%      { transform:scale(0.9) rotate(-8deg); }
 }
 
-
 .fade-up    { animation: fadeUp 0.7s ease-out both; }
 .fade-in    { animation: fadeIn 0.6s ease-out both; }
 .scale-in   { animation: scaleIn 0.5s ease-out both; }
@@ -472,15 +471,15 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Outfit', sa
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(224,82,120,0.3);
+  background: rgba(40,153,204,0.3);
   transition: all 0.35s cubic-bezier(.25,.46,.45,.94);
   cursor: pointer;
 }
 .dot.active {
-  background: var(--pink-dark);
+  background: var(--blue-dark);
   width: 22px;
   border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(224,82,120,0.5);
+  box-shadow: 0 2px 10px rgba(40,153,204,0.5);
 }
 
 /* ─── GALLERY MASONRY ─────────────────────────────────── */

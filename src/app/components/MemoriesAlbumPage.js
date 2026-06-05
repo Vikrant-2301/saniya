@@ -153,7 +153,7 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
           width: "100vw",
           overflow: "hidden",
           position: "relative",
-          background: "linear-gradient(-45deg, #2d0a1a, #4a0e28, #1a0510, #3d1030, #1e0825)",
+          background: "linear-gradient(-45deg, #071220, #0d2040, #060e1a, #102038, #081830)",
           backgroundSize: "400% 400%",
           animation: show ? "albumBg 14s ease infinite" : "none",
           opacity: show ? 1 : 0,
@@ -171,8 +171,8 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
         onMouseUp={onMouseUp}
       >
         {/* Deep pink glow orbs */}
-        <div style={{ position:"absolute", top:"-10%", left:"-8%", width:"50vmin", height:"50vmin", borderRadius:"50%", background:"radial-gradient(circle, rgba(255,20,147,0.2) 0%, transparent 70%)", filter:"blur(50px)", pointerEvents:"none" }}/>
-        <div style={{ position:"absolute", bottom:"-10%", right:"-8%", width:"55vmin", height:"55vmin", borderRadius:"50%", background:"radial-gradient(circle, rgba(255,105,180,0.18) 0%, transparent 70%)", filter:"blur(55px)", pointerEvents:"none" }}/>
+        <div style={{ position:"absolute", top:"-10%", left:"-8%", width:"50vmin", height:"50vmin", borderRadius:"50%", background:"radial-gradient(circle, rgba(40,153,204,0.25) 0%, transparent 70%)", filter:"blur(50px)", pointerEvents:"none" }}/>
+        <div style={{ position:"absolute", bottom:"-10%", right:"-8%", width:"55vmin", height:"55vmin", borderRadius:"50%", background:"radial-gradient(circle, rgba(21,107,153,0.2) 0%, transparent 70%)", filter:"blur(55px)", pointerEvents:"none" }}/>
 
         {/* Deco corner bows */}
         <div style={{ position:"absolute", top:"1rem", left:"1rem", fontSize:"clamp(1.2rem,3vw,2rem)", animation:"floatDeco 4s ease-in-out infinite", pointerEvents:"none", opacity:0.7 }}>🎀</div>
@@ -191,7 +191,7 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
             fontFamily: "'Dancing Script', cursive",
             fontSize: "clamp(1.1rem, 3.5vw, 1.9rem)",
             fontWeight: 700,
-            background: "linear-gradient(135deg, #ffb3c8, #ff6b9d, #ffd6e7)",
+            background: "linear-gradient(135deg, #b3ddf0, #6cbfe0, #dff0f8)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -222,8 +222,8 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
                 position: "absolute",
                 inset: 0,
                 borderRadius: "clamp(14px, 2.5vw, 22px)",
-                background: `rgba(255,${150 + offset * 15},${180 + offset * 10},${0.15 - offset * 0.04})`,
-                border: "2px solid rgba(255,182,193,0.2)",
+                background: `rgba(40,${80 + offset * 15},${120 + offset * 10},${0.15 - offset * 0.04})`,
+                border: "2px solid rgba(74,179,216,0.2)",
                 transform: `translateY(${offset * 10}px) scale(${1 - offset * 0.05}) rotate(${offset % 2 === 0 ? offset * 2 : -offset * 1.5}deg)`,
                 zIndex: 5 - offset,
                 boxShadow: "0 8px 40px rgba(0,0,0,0.4)",
@@ -241,7 +241,7 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
               borderRadius: "clamp(14px, 2.5vw, 22px)",
               overflow: "hidden",
               zIndex: 10,
-              boxShadow: "0 30px 80px rgba(0,0,0,0.55), 0 0 0 2px rgba(255,182,193,0.35)",
+              boxShadow: "0 30px 80px rgba(0,0,0,0.55), 0 0 0 2px rgba(74,179,216,0.35)",
               animation: animating
                 ? `${direction === "next" ? "cardExitNext" : "cardExitPrev"} 0.38s cubic-bezier(0.4,0,0.2,1) forwards`
                 : "cardEnterNext 0.42s cubic-bezier(0.2,0.8,0.2,1) both",
@@ -267,7 +267,7 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
             <div style={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(to top, rgba(45,10,26,0.95) 0%, rgba(45,10,26,0.4) 35%, transparent 60%)",
+              background: "linear-gradient(to top, rgba(7,18,32,0.95) 0%, rgba(7,18,32,0.4) 35%, transparent 60%)",
             }}/>
 
             {/* Photo number stamp top-right */}
@@ -277,10 +277,10 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
               right: "0.8rem",
               background: "rgba(255,255,255,0.12)",
               backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255,182,193,0.4)",
+              border: "1px solid rgba(74,179,216,0.4)",
               borderRadius: "999px",
               padding: "0.25rem 0.75rem",
-              color: "#ffd6e7",
+              color: "#b3ddf0",
               fontSize: "0.72rem",
               fontWeight: 700,
               letterSpacing: "0.08em",
@@ -299,7 +299,7 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
               <p style={{
                 fontFamily: "'Dancing Script', cursive",
                 fontSize: "clamp(0.95rem, 2.5vw, 1.3rem)",
-                color: "#ffd6e7",
+                color: "#b3ddf0",
                 fontWeight: 600,
                 margin: 0,
                 lineHeight: 1.4,
@@ -311,7 +311,7 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
               </p>
               {/* Heart row */}
               <div style={{ display:"flex", gap:"0.3rem", marginTop:"0.4rem" }}>
-                {["💕","🌸","✨"].map((e,i)=>(
+                {["💙","❄️","✨"].map((e,i)=>(
                   <span key={i} style={{ fontSize:"0.85rem", animation:`heartPop 0.5s ease-out ${0.5+i*0.1}s both`, display:"inline-block" }}>{e}</span>
                 ))}
               </div>
@@ -331,7 +331,7 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
                 <div style={{
                   background: "rgba(255,255,255,0.18)",
                   backdropFilter: "blur(12px)",
-                  border: "1.5px solid rgba(255,182,193,0.5)",
+                  border: "1.5px solid rgba(74,179,216,0.5)",
                   borderRadius: "999px",
                   padding: "0.5rem 1.3rem",
                   color: "#fff",
@@ -369,8 +369,8 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
                 height: "clamp(40px,8vw,52px)",
                 borderRadius: "50%",
                 background: current > 0 ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.05)",
-                border: "1.5px solid rgba(255,182,193,0.35)",
-                color: current > 0 ? "#ffd6e7" : "rgba(255,214,231,0.3)",
+                border: "1.5px solid rgba(74,179,216,0.35)",
+                color: current > 0 ? "#b3ddf0" : "rgba(179,221,240,0.3)",
                 fontSize: "1.5rem",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 cursor: current > 0 ? "pointer" : "not-allowed",
@@ -398,10 +398,10 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
                     height: i === segIdx ? "10px" : "6px",
                     borderRadius: "999px",
                     background: i <= segIdx
-                      ? "linear-gradient(90deg, #ff6b9d, #ffb3c8)"
-                      : "rgba(255,182,193,0.2)",
+                      ? "linear-gradient(90deg, #2899cc, #6cbfe0)"
+                      : "rgba(40,153,204,0.2)",
                     transition: "all 0.3s ease",
-                    boxShadow: i === segIdx ? "0 0 8px rgba(255,107,157,0.8)" : "none",
+                    boxShadow: i === segIdx ? "0 0 8px rgba(40,153,204,0.8)" : "none",
                   }}/>
                 );
               })}
@@ -416,8 +416,8 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
                 height: "clamp(40px,8vw,52px)",
                 borderRadius: "50%",
                 background: current < images.length - 1 ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.05)",
-                border: "1.5px solid rgba(255,182,193,0.35)",
-                color: current < images.length - 1 ? "#ffd6e7" : "rgba(255,214,231,0.3)",
+                border: "1.5px solid rgba(74,179,216,0.35)",
+                color: current < images.length - 1 ? "#b3ddf0" : "rgba(179,221,240,0.3)",
                 fontSize: "1.5rem",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 cursor: current < images.length - 1 ? "pointer" : "not-allowed",
@@ -433,7 +433,7 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
             <button
               onClick={onNext}
               style={{
-                background: "linear-gradient(135deg, #e05278, #ff6b9d, #ffb3c8)",
+                background: "linear-gradient(135deg, #2899cc, #6cbfe0, #b3ddf0)",
                 backgroundSize: "200% auto",
                 border: "none",
                 color: "#fff",
@@ -444,7 +444,7 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
                 letterSpacing: "0.08em",
                 cursor: "pointer",
                 fontFamily: "'Outfit', sans-serif",
-                boxShadow: "0 10px 36px rgba(224,82,120,0.55)",
+                boxShadow: "0 10px 36px rgba(40,153,204,0.55)",
                 animation: "heartPop 0.6s ease-out both, pulseBtn 3s ease-in-out 0.6s infinite",
                 outline: "none",
               }}

@@ -3,8 +3,8 @@ import { useState, useEffect, useRef } from "react";
 
 const MESSAGES = [
   "May your day be as wonderful as you are,",
-  "filled with love, laughter, and every beautiful thing",
-  "you truly deserve. 🌸✨💕",
+  "filled with joy, laughter, and every beautiful thing",
+  "you truly deserve. ❄️✨💙",
 ];
 
 function ConfettiCanvas() {
@@ -22,7 +22,7 @@ function ConfettiCanvas() {
     resize();
     window.addEventListener("resize", resize);
 
-    const colors = ["#ff8fab", "#e05278", "#f9c74f", "#ffc2d4", "#ff4d79", "#ffb3c8", "#fff", "#ff6b9d", "#c084fc"];
+    const colors = ["#6cbfe0", "#2899cc", "#b3ddf0", "#4ab3d8", "#dff0f8", "#9ed5ec", "#fff", "#156b99", "#a8d8ea"];
     const shapes = ["rect", "circle", "heart"];
 
     const pieces = Array.from({ length: 130 }, () => ({
@@ -116,7 +116,7 @@ export default function FinalPage({ onRestart }) {
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
-        background: "linear-gradient(-45deg, #ffe0f0, #ffc2d4, #ffd6e7, #ffeef5, #ffafd2, #ffc8dc)",
+        background: "linear-gradient(-45deg, #dff0f8, #b3ddf0, #c8e8f5, #e8f5fb, #9ed5ec, #a8d8ea)",
         backgroundSize: "400% 400%",
         animation: show ? "rainbowShift 8s ease-in-out infinite" : "none",
         opacity: show ? 1 : 0,
@@ -132,7 +132,7 @@ export default function FinalPage({ onRestart }) {
         position: "absolute", top: "-8%", left: "-6%",
         width: "clamp(150px, 28vw, 350px)", height: "clamp(150px, 28vw, 350px)",
         borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(255,105,180,0.38) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(40,153,204,0.38) 0%, transparent 70%)",
         filter: "blur(35px)", pointerEvents: "none", zIndex: 1,
         animation: "float 9s ease-in-out infinite",
       }}/>
@@ -140,12 +140,12 @@ export default function FinalPage({ onRestart }) {
         position: "absolute", bottom: "-6%", right: "-5%",
         width: "clamp(130px, 22vw, 300px)", height: "clamp(130px, 22vw, 300px)",
         borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(255,20,147,0.25) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(21,107,153,0.28) 0%, transparent 70%)",
         filter: "blur(28px)", pointerEvents: "none", zIndex: 1,
         animation: "floatR 12s ease-in-out 2s infinite",
       }}/>
 
-      {/* Content column — strictly sized to fit */}
+      {/* Content column */}
       <div style={{
         position: "relative",
         zIndex: 2,
@@ -180,7 +180,7 @@ export default function FinalPage({ onRestart }) {
           alt="HBD"
           style={{
             width: "clamp(90px, 18vw, 200px)",
-            filter: "drop-shadow(0 8px 28px rgba(224,82,120,0.45))",
+            filter: "drop-shadow(0 8px 28px rgba(40,153,204,0.5)) hue-rotate(180deg)",
             animation: "float 5s ease-in-out infinite, scaleInBounce 0.8s ease-out 0.1s both",
           }}
         />
@@ -190,7 +190,10 @@ export default function FinalPage({ onRestart }) {
           fontFamily: "'Dancing Script', cursive",
           fontSize: "clamp(1.3rem, 4vw, 2.5rem)",
           fontWeight: 700,
-          color: "#e05278",
+          background: "linear-gradient(135deg, #156b99, #2899cc, #6cbfe0)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
           margin: 0,
           animation: "fadeUp 0.7s ease-out 0.25s both, glowText 3s ease-in-out 1s infinite",
           textAlign: "center",
@@ -204,7 +207,7 @@ export default function FinalPage({ onRestart }) {
           fontFamily: "'Dancing Script', cursive",
           fontSize: "clamp(2.5rem, 9vw, 5.5rem)",
           fontWeight: 700,
-          background: "linear-gradient(135deg, #c0395e 0%, #e05278 25%, #ff8fab 55%, #f9c74f 75%, #e05278 100%)",
+          background: "linear-gradient(135deg, #156b99 0%, #2899cc 25%, #6cbfe0 55%, #b3ddf0 75%, #2899cc 100%)",
           backgroundSize: "300% 300%",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
@@ -212,10 +215,10 @@ export default function FinalPage({ onRestart }) {
           lineHeight: 1.05,
           animation: "fadeUp 0.7s ease-out 0.3s both, rainbowShift 5s ease-in-out infinite",
           textAlign: "center",
-          filter: "drop-shadow(0 3px 14px rgba(224,82,120,0.2))",
+          filter: "drop-shadow(0 3px 14px rgba(40,153,204,0.25))",
           margin: 0,
         }}>
-          Saniya! 💖
+          Saniya! 💙
         </div>
 
         {/* Message card */}
@@ -231,6 +234,7 @@ export default function FinalPage({ onRestart }) {
             flexDirection: "column",
             justifyContent: "center",
             gap: "0.15rem",
+            border: "1.5px solid rgba(74,179,216,0.5)",
           }}
         >
           {MESSAGES.slice(0, msgIdx + 1).map((msg, i) => (
@@ -239,7 +243,7 @@ export default function FinalPage({ onRestart }) {
               style={{
                 fontFamily: "'Dancing Script', cursive",
                 fontSize: "clamp(0.82rem, 2vw, 1.1rem)",
-                color: "#7a2040",
+                color: "#0f4c6e",
                 lineHeight: 1.55,
                 fontWeight: 600,
                 margin: 0,
@@ -272,7 +276,7 @@ export default function FinalPage({ onRestart }) {
               alt=""
               style={{
                 width: "clamp(40px, 7vw, 72px)",
-                filter: "drop-shadow(0 4px 12px rgba(255,77,121,0.4))",
+                filter: "drop-shadow(0 4px 12px rgba(40,153,204,0.45)) hue-rotate(180deg)",
                 animation: item.h
                   ? "heartbeatBig 1.3s ease-in-out infinite"
                   : `float ${item.dur}s ease-in-out ${i * 0.3}s infinite`,
@@ -289,6 +293,8 @@ export default function FinalPage({ onRestart }) {
             fontSize: "clamp(0.78rem, 1.8vw, 0.95rem)",
             padding: "clamp(0.55rem, 1.2vw, 0.78rem) clamp(1.3rem, 3.5vw, 2rem)",
             animation: "fadeUp 0.7s ease-out 0.9s both",
+            borderColor: "rgba(74,179,216,0.5)",
+            color: "#2899cc",
           }}
           onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px) scale(1.05)"; }}
           onMouseLeave={(e) => { e.currentTarget.style.transform = ""; }}

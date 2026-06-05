@@ -59,7 +59,7 @@ export default function LetterPageNew({ onNext }) {
       style={{
         height: "100vh",
         width: "100%",
-        background: "linear-gradient(160deg, #fff0f8 0%, #ffd6eb 30%, #ffb3cc 65%, #ffc2d4 100%)",
+        background: "linear-gradient(160deg, #dff0f8 0%, #b3ddf0 30%, #9ed5ec 65%, #c8e8f5 100%)",
         backgroundSize: "300% 300%",
         animation: show ? "rainbowShift 12s ease-in-out infinite" : "none",
         display: "flex",
@@ -73,7 +73,7 @@ export default function LetterPageNew({ onNext }) {
       }}
     >
       {/* Background floating elements */}
-      {["💕","🌸","💗","✨","💖","🌟"].map((e, i) => (
+      {["💙","❄️","💫","✨","⭐","🌟"].map((e, i) => (
         <div key={i} style={{
           position:"absolute",
           left: `${[4,88,6,84,50,12][i]}%`,
@@ -91,14 +91,14 @@ export default function LetterPageNew({ onNext }) {
         position:"absolute", top:"-10%", left:"-8%",
         width:"clamp(200px, 38vw, 450px)", height:"clamp(200px, 38vw, 450px)",
         borderRadius:"50%",
-        background:"radial-gradient(circle, rgba(255,150,180,0.4) 0%, transparent 70%)",
+        background:"radial-gradient(circle, rgba(40,153,204,0.38) 0%, transparent 70%)",
         filter:"blur(40px)", pointerEvents:"none",
       }}/>
       <div style={{
         position:"absolute", bottom:"-8%", right:"-5%",
         width:"clamp(180px, 30vw, 380px)", height:"clamp(180px, 30vw, 380px)",
         borderRadius:"50%",
-        background:"radial-gradient(circle, rgba(255,100,140,0.35) 0%, transparent 70%)",
+        background:"radial-gradient(circle, rgba(21,107,153,0.3) 0%, transparent 70%)",
         filter:"blur(35px)", pointerEvents:"none",
       }}/>
 
@@ -119,17 +119,17 @@ export default function LetterPageNew({ onNext }) {
               top: "-2.4rem",
               right: "0",
               background: "rgba(255,255,255,0.88)",
-              border: "1.5px solid rgba(255,143,171,0.55)",
+              border: "1.5px solid rgba(74,179,216,0.5)",
               borderRadius: "999px",
               padding: "0.32rem 1.1rem",
               fontSize: "0.8rem",
-              color: "#c0395e",
+              color: "#156b99",
               cursor: "pointer",
               backdropFilter: "blur(12px)",
               fontFamily: "Outfit, sans-serif",
               fontWeight: 700,
               zIndex: 10,
-              boxShadow: "0 2px 16px rgba(255,143,171,0.35)",
+              boxShadow: "0 2px 16px rgba(40,153,204,0.3)",
               transition: "all 0.2s",
               letterSpacing: "0.05em",
               textTransform: "uppercase",
@@ -143,7 +143,7 @@ export default function LetterPageNew({ onNext }) {
         <div style={{
           background: "#fff",
           borderRadius: "6px 16px 16px 6px",
-          boxShadow: "10px 10px 50px rgba(0,0,0,0.22), -4px -4px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(255,194,212,0.35)",
+          boxShadow: "10px 10px 50px rgba(0,0,0,0.22), -4px -4px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(74,179,216,0.3)",
           overflow: "hidden",
           display: "flex",
           height: "min(80vh, 600px)",
@@ -183,7 +183,7 @@ export default function LetterPageNew({ onNext }) {
               top: 0, bottom: 0,
               left: "clamp(50px, 10vw, 70px)",
               width: "2px",
-              background: "rgba(255,80,120,0.4)",
+              background: "rgba(40,153,204,0.35)",
               zIndex: 3,
               pointerEvents: "none",
             }}/>
@@ -217,7 +217,7 @@ export default function LetterPageNew({ onNext }) {
               <div style={{
                 textAlign: "center",
                 padding: "clamp(0.6rem, 1.5vh, 1rem) clamp(1rem, 2.5vw, 1.5rem) clamp(0.4rem, 1vh, 0.6rem)",
-                borderBottom: "1.5px dashed rgba(255,143,171,0.5)",
+                borderBottom: "1.5px dashed rgba(74,179,216,0.45)",
                 flexShrink: 0,
                 background: "rgba(255,255,255,0.6)",
               }}>
@@ -225,7 +225,7 @@ export default function LetterPageNew({ onNext }) {
                 <div style={{
                   fontFamily: "'Dancing Script', cursive",
                   fontSize: "clamp(0.88rem, 2.2vw, 1.1rem)",
-                  color: "#e05278",
+                  color: "#2899cc",
                   fontWeight: 700,
                   letterSpacing: "0.02em",
                 }}>
@@ -244,7 +244,7 @@ export default function LetterPageNew({ onNext }) {
                   paddingTop: `${LINE_HEIGHT_PX * 0.5}px`,
                   paddingBottom: "clamp(0.5rem, 1.5vh, 1rem)",
                   scrollbarWidth: "thin",
-                  scrollbarColor: "rgba(224,82,120,0.3) transparent",
+                  scrollbarColor: "rgba(40,153,204,0.3) transparent",
                 }}
               >
                 <p style={{
@@ -263,7 +263,7 @@ export default function LetterPageNew({ onNext }) {
                       display: "inline-block",
                       width: "2px",
                       height: "1em",
-                      background: "#e05278",
+                      background: "#2899cc",
                       verticalAlign: "text-bottom",
                       marginLeft: "1px",
                       animation: "blinkCursor 0.7s ease infinite",
@@ -279,7 +279,7 @@ export default function LetterPageNew({ onNext }) {
                   alignItems: "center",
                   justifyContent: "space-between",
                   padding: "clamp(0.5rem, 1.2vh, 0.75rem) clamp(1rem, 2.5vw, 1.5rem)",
-                  borderTop: "1.5px dashed rgba(255,143,171,0.45)",
+                  borderTop: "1.5px dashed rgba(74,179,216,0.4)",
                   flexShrink: 0,
                   flexWrap: "wrap",
                   gap: "0.6rem",
@@ -292,16 +292,16 @@ export default function LetterPageNew({ onNext }) {
                       alt="seal"
                       style={{
                         width: "clamp(34px, 6vw, 48px)",
-                        filter: "drop-shadow(0 3px 12px rgba(224,82,120,0.5))",
+                        filter: "drop-shadow(0 3px 12px rgba(40,153,204,0.5))",
                         animation: "heartbeat 1.5s ease-in-out infinite",
                       }}
                     />
                     <span style={{
                       fontFamily:"'Dancing Script', cursive",
                       fontSize:"clamp(0.8rem, 1.8vw, 1rem)",
-                      color:"#c0395e",
+                          color:"#156b99",
                       fontWeight: 600,
-                    }}>With love 💕</span>
+                    }}>With love 💙</span>
                   </div>
 
                   <button
@@ -313,7 +313,7 @@ export default function LetterPageNew({ onNext }) {
                       letterSpacing: "0.04em",
                     }}
                   >
-                    Continue 💖
+                    Continue 💙
                   </button>
                 </div>
               )}

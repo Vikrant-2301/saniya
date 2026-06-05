@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import PinkDeco from "./PinkDeco";
+import BlueDeco from "./BlueDeco";
 
 export default function QuestionPage({ onYes }) {
   const [noPos, setNoPos] = useState({ x: 0, y: 0 });
@@ -16,20 +16,29 @@ export default function QuestionPage({ onYes }) {
     setNoCount((c) => c + 1);
   };
 
-  const msgs = ["Nope! 😜","Try again! 😂","Haha no! 🙈","Are you sure? 🤔","I don't think so! 😝","Never! 🤣","You can't! 🏃","Come on! 💕"];
+  const msgs = ["Nope! 😜","Try again! 😂","Haha no! 🙈","Are you sure? 🤔","I don't think so! 😝","Never! 🤣","You can't! 🏃","Come on! 💙"];
 
   return (
     <div
       className="page-noscroll"
       style={{
-        background: "linear-gradient(145deg, #fff0f5 0%, #ffd6e7 40%, #ffb3cc 70%, #ffe0ec 100%)",
+        background: "linear-gradient(-45deg, #dff0f8, #b3ddf0, #c8e8f5, #e8f5fb, #a8d8ea, #9ed5ec)",
+        backgroundSize: "400% 400%",
+        animation: show ? "blueQShift 10s ease-in-out infinite" : "none",
         textAlign: "center",
         opacity: show ? 1 : 0,
         transition: "opacity 0.7s ease",
         overflow: "hidden",
       }}
     >
-      <PinkDeco variant="balloons" />
+      <style>{`
+        @keyframes blueQShift {
+          0%,100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+      `}</style>
+
+      <BlueDeco variant="balloons" />
 
       {/* Mascot */}
       <img
@@ -38,7 +47,7 @@ export default function QuestionPage({ onYes }) {
         style={{
           width: "clamp(130px, 22vw, 200px)",
           margin: "0 auto 1.5rem",
-          filter: "drop-shadow(0 10px 28px rgba(224,82,120,0.3))",
+          filter: "drop-shadow(0 10px 28px rgba(40,153,204,0.35)) hue-rotate(180deg)",
           animation: "float 4s ease-in-out infinite, fadeUp 0.6s ease-out both",
           position: "relative",
           zIndex: 2,
@@ -56,57 +65,48 @@ export default function QuestionPage({ onYes }) {
           position: "relative",
           zIndex: 2,
           animation: "scaleIn 0.6s ease-out 0.1s both",
+          border: "1.5px solid rgba(74,179,216,0.5)",
         }}
       >
-        {/* Rainbow top bar */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: "20%",
-            right: "20%",
-            height: "3px",
-            background: "linear-gradient(90deg, #ff8fab, #e05278, #f9c74f, #ff8fab)",
-            backgroundSize: "200%",
-            animation: "shimmer 3s linear infinite",
-            borderRadius: "999px",
-          }}
-        />
+        {/* Blue shimmer top bar */}
+        <div style={{
+          position: "absolute", top: 0, left: "20%", right: "20%",
+          height: "3px",
+          background: "linear-gradient(90deg, #b3ddf0, #2899cc, #6cbfe0, #b3ddf0)",
+          backgroundSize: "200%",
+          animation: "shimmer 3s linear infinite",
+          borderRadius: "999px",
+        }}/>
 
         <div style={{ fontSize: "2.5rem", marginBottom: "0.75rem" }}>🎁</div>
 
-        <h2
-          style={{
-            fontFamily: "'Dancing Script', cursive",
-            fontSize: "clamp(1.7rem, 5vw, 2.6rem)",
-            fontWeight: 700,
-            color: "#e05278",
-            marginBottom: "0.4rem",
-          }}
-        >
+        <h2 style={{
+          fontFamily: "'Dancing Script', cursive",
+          fontSize: "clamp(1.7rem, 5vw, 2.6rem)",
+          fontWeight: 700,
+          background: "linear-gradient(135deg, #156b99, #2899cc, #6cbfe0)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          marginBottom: "0.4rem",
+        }}>
           Are you ready for your surprise?
         </h2>
-        <p style={{ color: "#c47a8a", fontSize: "0.95rem", marginBottom: "2rem" }}>
+        <p style={{ color: "#2178a6", fontSize: "0.95rem", marginBottom: "2rem" }}>
           Your photo gallery of precious memories is waiting! 📸
         </p>
 
         {/* Buttons */}
-        <div
-          style={{
-            position: "relative",
-            display: "flex",
-            gap: "1rem",
-            justifyContent: "center",
-            alignItems: "center",
-            minHeight: "70px",
-            flexWrap: "wrap",
-          }}
-        >
+        <div style={{
+          position: "relative", display: "flex", gap: "1rem",
+          justifyContent: "center", alignItems: "center",
+          minHeight: "70px", flexWrap: "wrap",
+        }}>
           <button
             onClick={onYes}
             className="btn btn-primary"
             style={{ fontSize: "1.1rem", padding: "0.95rem 2.8rem" }}
-            onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px) scale(1.06)"; e.currentTarget.style.boxShadow = "0 14px 40px rgba(224,82,120,0.55)"; }}
+            onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px) scale(1.06)"; e.currentTarget.style.boxShadow = "0 14px 40px rgba(40,153,204,0.55)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}
           >
             Yes! 🎉
@@ -129,15 +129,8 @@ export default function QuestionPage({ onYes }) {
         </div>
 
         {noCount > 3 && (
-          <p
-            style={{
-              marginTop: "1rem",
-              color: "#ff8fab",
-              fontSize: "0.85rem",
-              animation: "fadeUp 0.4s ease-out both",
-            }}
-          >
-            You can't say no! The gallery is waiting for you! 😂💕
+          <p style={{ marginTop: "1rem", color: "#2899cc", fontSize: "0.85rem", animation: "fadeUp 0.4s ease-out both" }}>
+            You can't say no! The gallery is waiting for you! 😂💙
           </p>
         )}
       </div>
