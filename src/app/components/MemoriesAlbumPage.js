@@ -30,12 +30,13 @@ function getCaption(index) {
 
 export default function MemoriesAlbumPage({ images = [], onNext }) {
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState("next"); // "next" | "prev"
-  const [animating, setAnimating] = useState(false);
+  const [outgoing, setOutgoing] = useState(null); // { index, direction }
+  const [direction, setDirection] = useState("next");
   const [show, setShow] = useState(false);
   const [dragStart, setDragStart] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const touchStartX = useRef(null);
+  const animating = outgoing !== null;
 
   useEffect(() => {
     setTimeout(() => setShow(true), 100);
@@ -44,12 +45,13 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
   const goTo = (idx, dir) => {
     if (animating || idx === current) return;
     setDirection(dir);
-    setAnimating(true);
+    // Immediately switch to new photo — outgoing card shows the old one
+    setOutgoing({ index: current, direction: dir });
+    setCurrent(idx);
+    if (idx === images.length - 1) setRevealed(true);
     setTimeout(() => {
-      setCurrent(idx);
-      setAnimating(false);
-      if (idx === images.length - 1) setRevealed(true);
-    }, 380);
+      setOutgoing(null);
+    }, 420);
   };
 
   const next = () => {
@@ -89,7 +91,7 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
 
   if (!images.length) return null;
 
-  // Stacked behind cards (up to 3 peeking out)
+  // Stack peek cards (behind main card)
   const stackBehind = [2, 1].map((offset) => {
     const idx = current + offset;
     if (idx >= images.length) return null;
@@ -233,8 +235,35 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
             />
           ))}
 
-          {/* Main photo card */}
+          {/* OUTGOING card — old photo exits */}
+          {outgoing !== null && (
+            <div
+              key={`out-${outgoing.index}`}
+              style={{
+                position: "absolute",
+                inset: 0,
+                borderRadius: "clamp(14px, 2.5vw, 22px)",
+                overflow: "hidden",
+                zIndex: 11, // on top so it slides away over the incoming
+                boxShadow: "0 30px 80px rgba(0,0,0,0.55), 0 0 0 2px rgba(74,179,216,0.35)",
+                animation: `${outgoing.direction === "next" ? "cardExitNext" : "cardExitPrev"} 0.42s cubic-bezier(0.4,0,0.2,1) forwards`,
+                background: "#0a1628",
+                pointerEvents: "none",
+              }}
+            >
+              <img
+                src={`/assets/${images[outgoing.index]}`}
+                alt={`Memory ${outgoing.index + 1}`}
+                style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }}
+                draggable={false}
+              />
+              <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(7,18,32,0.95) 0%, rgba(7,18,32,0.4) 35%, transparent 60%)" }}/>
+            </div>
+          )}
+
+          {/* INCOMING card — new photo enters */}
           <div
+            key={`in-${current}`}
             style={{
               position: "absolute",
               inset: 0,
@@ -243,9 +272,9 @@ export default function MemoriesAlbumPage({ images = [], onNext }) {
               zIndex: 10,
               boxShadow: "0 30px 80px rgba(0,0,0,0.55), 0 0 0 2px rgba(74,179,216,0.35)",
               animation: animating
-                ? `${direction === "next" ? "cardExitNext" : "cardExitPrev"} 0.38s cubic-bezier(0.4,0,0.2,1) forwards`
-                : "cardEnterNext 0.42s cubic-bezier(0.2,0.8,0.2,1) both",
-              background: "#1a0510",
+                ? `${direction === "next" ? "cardEnterNext" : "cardEnterPrev"} 0.42s cubic-bezier(0.2,0.8,0.2,1) both`
+                : "none",
+              background: "#0a1628",
               cursor: current < images.length - 1 ? "pointer" : "default",
             }}
             onClick={() => { if (!animating && current < images.length - 1) next(); }}
