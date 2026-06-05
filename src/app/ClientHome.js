@@ -5,27 +5,30 @@ import MendHeartPage from "./components/MendHeartPage";
 import WishPage from "./components/WishPage";
 import LetterPageNew from "./components/LetterPageNew";
 import QuestionPage from "./components/QuestionPage";
-import GalleryPageNew from "./components/GalleryPageNew";
+import SaniyaGalleryPage from "./components/SaniyaGalleryPage";
+import MemoriesAlbumPage from "./components/MemoriesAlbumPage";
 import FinalPage from "./components/FinalPage";
 
 /*
   Pages (in order):
-  0 - Splash/Landing
+  0 - Splash / Landing
   1 - Mend the Heart
   2 - Make a Wish
   3 - Letter (notebook style)
   4 - Question (are you ready?)
-  5 - Gallery
-  6 - Final celebration
+  5 - Saniya Gallery (her solo photos)
+  6 - Our Memories (sonal album — fullscreen stacked)
+  7 - Final celebration
 */
 
-const TOTAL_PAGES = 7;
+const TOTAL_PAGES = 8;
 
-export default function ClientHome({ initialImages }) {
+export default function ClientHome({ saniyaImages, sonalImages }) {
   const [page, setPage] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
   const audioRef = useRef(null);
-  const images = initialImages || [];
+  const saniya = saniyaImages || [];
+  const sonal = sonalImages || [];
 
   const navigate = (target) => {
     setTransitioning(true);
@@ -65,11 +68,12 @@ export default function ClientHome({ initialImages }) {
         {page === 2 && <WishPage onNext={next} />}
         {page === 3 && <LetterPageNew onNext={next} />}
         {page === 4 && <QuestionPage onYes={next} />}
-        {page === 5 && <GalleryPageNew images={images} onNext={next} />}
-        {page === 6 && <FinalPage onRestart={restart} />}
+        {page === 5 && <SaniyaGalleryPage images={saniya} onNext={next} />}
+        {page === 6 && <MemoriesAlbumPage images={sonal} onNext={next} />}
+        {page === 7 && <FinalPage onRestart={restart} />}
       </div>
 
-      {/* Progress dots (no navbar) */}
+      {/* Progress dots */}
       <div
         style={{
           position: "fixed",
@@ -103,7 +107,7 @@ export default function ClientHome({ initialImages }) {
         ))}
       </div>
 
-      {/* Music toggle (subtle) */}
+      {/* Music toggle */}
       {page >= 1 && (
         <button
           onClick={() => {
